@@ -4,7 +4,7 @@
 
 **Business Name:** Maribyrnong & Hobsons Bay Reblocking
 **Phone:** 0466 961 177 (primary), 0418 802 192 (secondary)
-**Email:** vsokolov@tpg.com.au
+**Email:** simon23@mhbreblocking.com
 **Existing Website:** https://www.mhbreblocking.com/
 **Location:** Inner-west Melbourne (Maribyrnong + Hobsons Bay councils). Services Victoria-wide.
 **Experience:** 35+ years (trading since the early 1990s)
