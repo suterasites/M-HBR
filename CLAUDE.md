@@ -136,11 +136,11 @@ The injection scripts (`_seo_inject.py`, `_seo_images.py`, `_seo_main.py`) were 
 
 ### What still needs doing (pre-deploy)
 - Generate the actual `og-image.jpg` (1200x630).
-- Replace `REPLACE_WITH_FORMSPREE_ID` in `contact.html` with the real Formspree form ID.
 - Confirm DNS access for mhbreblocking.com cutover.
 
 ## Formspree
-- Both forms (currently only contact.html, homepage is now CTA-only) post to `https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID`.
-- Replace `REPLACE_WITH_FORMSPREE_ID` with the real Formspree form ID once Simon confirms the inbox to receive submissions.
+- Form ID: `mbdwwgjl` (configured 2026-05-12).
+- contact.html `<form id="quote-form">` posts to `https://formspree.io/f/mbdwwgjl`.
+- Homepage is CTA-only (no form). about.html and gallery.html have residual JS handlers that early-return because they don't contain `#quote-form` - harmless dead code, kept for shell consistency.
 - Form has built-in honeypot (`_gotcha` field).
-- JS handler in contact.html intercepts submit, posts via fetch with JSON Accept header, shows inline success/error status. While the placeholder ID is in the action attribute the JS lets the form post normally (no submission goes anywhere).
+- JS handler in contact.html intercepts submit, posts via fetch with JSON Accept header, shows inline success/error status.

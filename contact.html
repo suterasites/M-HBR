@@ -336,7 +336,7 @@
         house.
       </p>
 
-      <form id="quote-form" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" method="POST" class="mt-9 hairline rounded-md p-7 lg:p-9 bg-white grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <form id="quote-form" action="https://formspree.io/f/mbdwwgjl" method="POST" class="mt-9 hairline rounded-md p-7 lg:p-9 bg-white grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div class="sm:col-span-1">
           <label for="first_name" class="condensed text-[12px] text-brand-rust tracking-[0.16em]">FIRST NAME</label>
           <input type="text" id="first_name" name="first_name" required class="mt-2 w-full bg-transparent border-b border-brand-charcoal/20 focus:border-brand-orange outline-none py-3 text-brand-charcoal placeholder-brand-charcoal/35 transition-colors" placeholder="Jane" />
@@ -568,7 +568,6 @@
     };
     form.addEventListener('submit', async (e) => {
       const action = form.getAttribute('action') || '';
-      if (action.includes('REPLACE_WITH_FORMSPREE_ID')) return; // let it post normally until configured
       e.preventDefault();
       const data = new FormData(form);
       try {
