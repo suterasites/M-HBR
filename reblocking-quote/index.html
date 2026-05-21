@@ -205,9 +205,9 @@
 
     /* Header */
     .site-header { position: sticky; top: 0; z-index: 50; background: var(--brand-cream); border-bottom: 1px solid rgba(26,22,20,0.08); transition: transform 0.3s ease; }
-    .site-header__inner { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; padding-left: 1rem; padding-right: 1rem; }
-    @media (min-width: 640px) { .site-header__inner { padding-left: 1.5rem; padding-right: 1.5rem; height: 72px; } }
-    @media (min-width: 1024px) { .site-header__inner { padding-left: 2rem; padding-right: 2rem; height: 80px; } }
+    .site-header__inner { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    @media (min-width: 640px) { .site-header__inner { height: 72px; } }
+    @media (min-width: 1024px) { .site-header__inner { height: 80px; } }
     .site-header__brand { display: inline-flex; align-items: center; }
     .site-header__brand img { height: 28px; width: auto; mix-blend-mode: multiply; }
     @media (min-width: 640px) { .site-header__brand img { height: 34px; } }
@@ -366,7 +366,7 @@
 
   <!-- Minimal Landing Nav: logo + phone + Get Quote -->
   <header id="site-header" class="site-header">
-    <div class="site-header__inner">
+    <div class="container site-header__inner">
       <a href="#top" class="site-header__brand" aria-label="MHB Reblocking home">
         <img src="../Assets/logo.jpg" alt="Maribyrnong and Hobsons Bay Reblocking logo" width="403" height="125" decoding="async">
       </a>
