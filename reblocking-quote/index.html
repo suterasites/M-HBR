@@ -118,6 +118,22 @@
     gtag('config', 'AW-XXXXXXXXX');
   </script>
 
+  <!-- Elfsight Google Reviews - deferred until first user interaction (kept lazy; not conversion-critical). -->
+  <script>
+    (function() {
+      var loaded = false;
+      function loadElfsight() {
+        if (loaded) return; loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://elfsightcdn.com/platform.js';
+        document.head.appendChild(s);
+      }
+      var events = ['pointerdown', 'touchstart', 'keydown', 'click', 'mousemove'];
+      events.forEach(function(e) { window.addEventListener(e, loadElfsight, { once: true, passive: true, capture: true }); });
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -245,6 +261,8 @@
     @media (min-width: 480px) { .form-grid-2 { grid-template-columns: 1fr 1fr; } }
     .field { display: block; }
     .field + .field { margin-top: 16px; }
+    .form-grid-2 .field + .field { margin-top: 0; }
+    .form-grid-2 + .field { margin-top: 16px; }
     .field label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--brand-charcoal); }
     .field .req { color: var(--brand-orange); }
     .field .opt { color: var(--ink-muted); font-weight: 400; }
@@ -480,6 +498,19 @@
             Free, no-obligation quote. Your details stay private.
           </p>
         </form>
+      </div>
+    </section>
+
+    <!-- GOOGLE REVIEWS -->
+    <section class="section bg-white" style="border-bottom: 1px solid var(--ink-line);">
+      <div class="container">
+        <div class="section-head center">
+          <span class="chip">Google Reviews</span>
+          <h2>What our customers say.</h2>
+          <p>Real Google reviews from Victorian homeowners we've reblocked, restumped and levelled across 35+ years on the tools.</p>
+        </div>
+        <!-- Elfsight Google Reviews | M&HBR (deferred, below fold) -->
+        <div class="elfsight-app-447de814-10f8-4519-98c7-c311f6f2ea64" data-elfsight-app-lazy></div>
       </div>
     </section>
 
