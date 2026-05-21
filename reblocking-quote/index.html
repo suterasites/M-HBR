@@ -204,15 +204,18 @@
     .chip-on-dark { background: rgba(230,106,44,0.18); color: #F5C8AE; }
 
     /* Header */
-    .site-header { position: sticky; top: 0; z-index: 50; background: var(--brand-cream); border-bottom: 1px solid rgba(26,22,20,0.08); transition: transform 0.3s ease; }
-    .site-header__inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-    @media (min-width: 1024px) { .site-header__inner { height: 78px; } }
-    .site-header__brand { display: inline-flex; align-items: center; }
-    .site-header__brand img { height: 32px; width: auto; mix-blend-mode: multiply; }
-    @media (min-width: 1024px) { .site-header__brand img { height: 40px; } }
+    .site-header { position: sticky; top: 0; z-index: 50; background: rgba(26,22,20,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.06); transition: transform 0.3s ease; }
+    .site-header__inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+    @media (min-width: 1024px) { .site-header__inner { height: 76px; } }
+    .site-header__brand { display: inline-flex; align-items: baseline; gap: 8px; line-height: 1; }
+    .site-header__brand-mark { color: #fff; font-family: 'Archivo', sans-serif; font-weight: 900; font-size: 1.1rem; letter-spacing: 0.01em; text-transform: uppercase; }
+    @media (min-width: 640px) { .site-header__brand-mark { font-size: 1.25rem; } }
+    .site-header__brand-mark .accent { color: var(--brand-orange); }
+    .site-header__brand-tag { display: none; color: rgba(255,255,255,0.55); font-family: 'Archivo Narrow', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; }
+    @media (min-width: 480px) { .site-header__brand-tag { display: inline; } }
     .site-header__cta { display: flex; align-items: center; gap: 0.75rem; }
     @media (min-width: 640px) { .site-header__cta { gap: 1rem; } }
-    .site-header__phone { display: none; color: var(--brand-charcoal); font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.02em; }
+    .site-header__phone { display: none; color: rgba(255,255,255,0.9); font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.02em; }
     @media (min-width: 768px) { .site-header__phone { display: inline-flex; } }
 
     /* Hero */
@@ -362,11 +365,12 @@
 </head>
 <body>
 
-  <!-- Minimal Landing Nav: logo + phone + Get Quote -->
+  <!-- Minimal Landing Nav: brand + phone + Get Quote -->
   <header id="site-header" class="site-header">
     <div class="container site-header__inner">
       <a href="#top" class="site-header__brand" aria-label="MHB Reblocking home">
-        <img src="../Assets/logo.jpg" alt="Maribyrnong and Hobsons Bay Reblocking logo" width="403" height="125" decoding="async">
+        <span class="site-header__brand-mark">MHB <span class="accent">Reblocking</span></span>
+        <span class="site-header__brand-tag">Since 1990</span>
       </a>
       <div class="site-header__cta">
         <a href="tel:+61466961177" data-conversion="call" class="site-header__phone">0466 961 177</a>
