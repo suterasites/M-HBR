@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanks - We'll Be In Touch | MHB Reblocking</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+
+  <!-- Google tag (gtag.js) - mirror the LP for cross-page tracking. -->
+  <!-- TODO: Replace AW-XXXXXXXXX with the actual Google Ads conversion ID after campaign creation. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-XXXXXXXXX');
+
+    // Form Lead conversion fires on page load (Formspree redirects here after submit).
+    // TODO: Replace AW-XXXXXXXXX/FORM_CONVERSION_LABEL after campaign creation.
+    gtag('event', 'conversion', {
+      'send_to': 'AW-XXXXXXXXX/FORM_CONVERSION_LABEL',
+      'value': 800.0,
+      'currency': 'AUD'
+    });
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <style>
+    :root {
+      --brand-orange: #E66A2C;
+      --brand-charcoal: #1A1614;
+      --brand-cream: #F5EFE6;
+      --ink-soft: #4C4640;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--brand-charcoal); background: var(--brand-cream); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
+    .card { background: #fff; border-radius: 16px; padding: 48px 32px; max-width: 540px; width: 100%; text-align: center; box-shadow: 0 1px 2px rgba(10,10,10,0.04), 0 12px 32px rgba(10,10,10,0.07); }
+    @media (min-width: 640px) { .card { padding: 56px 48px; } }
+    .check { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 999px; background: var(--brand-orange); color: #fff; margin-bottom: 20px; }
+    h1 { font-family: 'Archivo', sans-serif; font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.6rem); text-transform: uppercase; line-height: 1.05; margin: 0 0 14px; }
+    p { color: var(--ink-soft); margin: 0 0 12px; }
+    .row { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+    @media (min-width: 480px) { .row { flex-direction: row; justify-content: center; } }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0.95rem 1.7rem; border-radius: 6px; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; transition: transform 180ms ease, background-color 200ms ease; border: 1.5px solid transparent; }
+    .btn-primary { background: var(--brand-orange); color: #fff; }
+    .btn-primary:hover { background: #C95217; transform: translateY(-1px); }
+    .btn-outline { border-color: var(--brand-charcoal); color: var(--brand-charcoal); }
+    .btn-outline:hover { background: var(--brand-charcoal); color: #fff; transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="check">
+        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <h1>Thanks - we got it.</h1>
+      <p>One of the team will be in touch within 24 hours to lock in a free on-site visit.</p>
+      <p>If it's urgent, give us a call - we'll usually pick up.</p>
+      <div class="row">
+        <a href="tel:+61466961177" class="btn btn-primary">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.95.68l1.5 4.5a1 1 0 01-.27 1.06L7.91 10.91a12.05 12.05 0 005.18 5.18l1.67-1.55a1 1 0 011.06-.27l4.5 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z"/></svg>
+          Call 0466 961 177
+        </a>
+        <a href="https://mhbreblocking.com/" class="btn btn-outline">Back to Site</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
