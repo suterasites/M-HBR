@@ -108,14 +108,13 @@
   }
   </script>
 
-  <!-- Google tag (gtag.js) - loaded synchronously so GCLID is captured into _gcl_aw cookie before any form/call interaction. -->
-  <!-- TODO: Replace AW-XXXXXXXXX with the actual Google Ads conversion ID after campaign creation. -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18179285099"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'AW-XXXXXXXXX');
+    gtag('config', 'AW-18179285099');
   </script>
 
   <!-- Elfsight Google Reviews - deferred until first user interaction (kept lazy; not conversion-critical). -->
@@ -870,12 +869,13 @@
     })();
 
     // Phone Call Lead conversion: fires when a tel: link is clicked.
-    // TODO: Replace AW-XXXXXXXXX/PHONE_CONVERSION_LABEL after campaign creation.
+    // TODO: Replace PHONE_CONVERSION_LABEL with the actual label from Google Ads
+    // (Tools > Conversions > [your phone-call action] > Tag setup).
     document.querySelectorAll('[data-conversion="call"]').forEach(function(el) {
       el.addEventListener('click', function() {
         if (typeof gtag === 'function') {
           gtag('event', 'conversion', {
-            'send_to': 'AW-XXXXXXXXX/PHONE_CONVERSION_LABEL',
+            'send_to': 'AW-18179285099/PHONE_CONVERSION_LABEL',
             'value': 800.0,
             'currency': 'AUD'
           });
