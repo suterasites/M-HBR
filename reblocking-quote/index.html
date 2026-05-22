@@ -335,6 +335,18 @@
     .ba-badge--before { background: rgba(26,22,20,0.88); }
     .ba-badge--after { background: var(--brand-orange); }
 
+    /* Service area */
+    .areas-grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
+    @media (min-width: 540px) { .areas-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+    @media (min-width: 1024px) { .areas-grid { grid-template-columns: repeat(4, 1fr); gap: 22px; } }
+    .area-card { background: #fff; border: 1px solid var(--ink-line); border-radius: 12px; padding: 22px 22px 24px; box-shadow: 0 1px 2px rgba(10,10,10,0.04), 0 4px 12px rgba(10,10,10,0.04); }
+    .area-card__zone { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand-rust); margin: 0 0 14px; padding-bottom: 10px; border-bottom: 2px solid var(--brand-orange); }
+    .area-card__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+    .area-card__list li { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.5; }
+    .areas-foot { margin-top: 28px; text-align: center; color: var(--ink-soft); font-size: 0.92rem; max-width: 720px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+    .areas-foot a { color: var(--brand-rust); font-weight: 600; white-space: nowrap; }
+    .areas-foot a:hover { color: var(--brand-orange); }
+
     /* FAQ */
     .faq-wrap { max-width: 760px; margin: 0 auto; }
     .faq-list { background: var(--brand-cream); border-radius: 16px; padding: 0 28px; box-shadow: 0 1px 2px rgba(10,10,10,0.04), 0 4px 12px rgba(10,10,10,0.06); }
@@ -631,6 +643,71 @@
         <div style="text-align: center; margin-top: 36px;">
           <a href="#quick-quote" class="btn btn-primary">Get Your Free Quote</a>
         </div>
+      </div>
+    </section>
+
+    <!-- WHERE WE WORK -->
+    <section id="service-area" class="section bg-cream">
+      <div class="container">
+        <div class="section-head center">
+          <span class="chip">Service Area</span>
+          <h2>Where we reblock.</h2>
+          <p>Family-owned and on the tools across Victoria for 35+ years, from inner-Melbourne weatherboards to the regional country towns. The suburbs below are where we work most weeks - call if you're nearby and not listed.</p>
+        </div>
+        <div class="areas-grid">
+          <div class="area-card">
+            <h3 class="area-card__zone">Inner Melbourne</h3>
+            <ul class="area-card__list">
+              <li>Brunswick</li>
+              <li>Brunswick East</li>
+              <li>Brunswick West</li>
+              <li>Prahran</li>
+              <li>Windsor</li>
+              <li>South Yarra</li>
+              <li>Armadale</li>
+            </ul>
+          </div>
+          <div class="area-card">
+            <h3 class="area-card__zone">Ballarat</h3>
+            <ul class="area-card__list">
+              <li>Ballarat Central</li>
+              <li>Soldiers Hill</li>
+              <li>Lake Wendouree</li>
+              <li>Sebastopol</li>
+              <li>Wendouree</li>
+              <li>Mount Pleasant</li>
+              <li>Black Hill</li>
+            </ul>
+          </div>
+          <div class="area-card">
+            <h3 class="area-card__zone">Macedon Ranges</h3>
+            <ul class="area-card__list">
+              <li>Kyneton</li>
+              <li>Woodend</li>
+              <li>Gisborne</li>
+              <li>Romsey</li>
+              <li>Riddells Creek</li>
+              <li>Lancefield</li>
+              <li>Mount Macedon</li>
+            </ul>
+          </div>
+          <div class="area-card">
+            <h3 class="area-card__zone">Greater Melbourne</h3>
+            <ul class="area-card__list">
+              <li>Maribyrnong</li>
+              <li>Hobsons Bay</li>
+              <li>Yarraville</li>
+              <li>Footscray</li>
+              <li>Williamstown</li>
+              <li>Altona</li>
+              <li>Newport</li>
+            </ul>
+          </div>
+        </div>
+        <p class="areas-foot">
+          Not listed? We service across Victoria - reblocking, restumping and underpinning jobs welcome anywhere from regional VIC to the inner suburbs.
+          <a href="tel:+61466961177" data-conversion="call">Call 0466 961 177</a> if you're outside these zones and we'll let you know.
+        </p>
       </div>
     </section>
 
