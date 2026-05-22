@@ -138,7 +138,11 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
-  <link rel="preload" as="image" href="../Assets/reblocking-restumping-exterior.webp" fetchpriority="high">
+  <link rel="preload" as="image"
+        href="../Assets/reblocking-restumping-exterior-640.webp"
+        imagesrcset="../Assets/reblocking-restumping-exterior-640.webp 640w, ../Assets/reblocking-restumping-exterior-800.webp 800w, ../Assets/reblocking-restumping-exterior.webp 1000w"
+        imagesizes="(max-width: 639px) 100vw, (max-width: 1023px) 80vw, 480px"
+        fetchpriority="high">
 
   <style>
     /* MHBR brand palette */
@@ -389,7 +393,7 @@
   <header id="site-header" class="site-header">
     <div class="container site-header__inner">
       <a href="#top" class="site-header__brand" aria-label="MHB Reblocking home">
-        <img src="../Assets/logo.jpg" alt="Maribyrnong and Hobsons Bay Reblocking logo" width="403" height="125" decoding="async">
+        <img src="../Assets/logo-200.webp" srcset="../Assets/logo-200.webp 1x, ../Assets/logo-400.webp 2x" alt="Maribyrnong and Hobsons Bay Reblocking logo" width="199" height="62" decoding="async">
       </a>
       <div class="site-header__cta">
         <a href="tel:+61466961177" data-conversion="call" class="site-header__phone">0466 961 177</a>
@@ -431,10 +435,14 @@
             </div>
           </div>
           <div class="hero__media">
-            <img src="../Assets/reblocking-restumping-exterior.webp"
-                 alt="Weatherboard home freshly reblocked by MHB Reblocking, exterior view"
-                 width="1200" height="900"
-                 loading="eager" fetchpriority="high" decoding="async">
+            <picture>
+              <source media="(max-width: 639px)" srcset="../Assets/reblocking-restumping-exterior-640.webp" type="image/webp">
+              <source media="(max-width: 1023px)" srcset="../Assets/reblocking-restumping-exterior-800.webp" type="image/webp">
+              <img src="../Assets/reblocking-restumping-exterior.webp"
+                   alt="Weatherboard home freshly reblocked by MHB Reblocking, exterior view"
+                   width="1000" height="1000"
+                   loading="eager" fetchpriority="high" decoding="async">
+            </picture>
             <div class="hero__media-caption">
               <div>
                 <div class="label">Recent job</div>
@@ -823,7 +831,7 @@
     <div class="container">
       <div class="footer-row">
         <a href="#top" class="footer-brand" aria-label="MHB Reblocking home">
-          <img src="../Assets/logo.jpg" alt="Maribyrnong and Hobsons Bay Reblocking" width="403" height="125" loading="lazy" decoding="async">
+          <img src="../Assets/logo-200.webp" srcset="../Assets/logo-200.webp 1x, ../Assets/logo-400.webp 2x" alt="Maribyrnong and Hobsons Bay Reblocking" width="199" height="62" loading="lazy" decoding="async">
         </a>
         <div style="font-family: 'Archivo Narrow', sans-serif; font-weight: 600; letter-spacing: 0.05em;">
           <a href="tel:+61466961177" data-conversion="call" style="margin-right: 18px;">0466 961 177</a>
