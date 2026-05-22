@@ -331,15 +331,6 @@
     .gallery-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.05) 55%); pointer-events: none; }
     .gallery-card figcaption { position: absolute; left: 14px; bottom: 12px; z-index: 2; color: #fff; font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; }
 
-    /* Before/After */
-    .ba-grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
-    @media (min-width: 1024px) { .ba-grid { grid-template-columns: 1fr 1fr; } }
-    .ba-card { position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 1px 2px rgba(10,10,10,0.04), 0 4px 12px rgba(10,10,10,0.06), 0 16px 32px rgba(10,10,10,0.04); }
-    .ba-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-    .ba-badge { position: absolute; top: 14px; left: 14px; padding: 6px 12px; border-radius: 999px; font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: #fff; }
-    .ba-badge--before { background: rgba(26,22,20,0.88); }
-    .ba-badge--after { background: var(--brand-orange); }
-
     /* Service area */
     .areas-grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
     @media (min-width: 540px) { .areas-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
@@ -731,36 +722,20 @@
         </div>
         <div class="gallery-grid">
           <figure class="gallery-card">
-            <img src="../Assets/reblocking-restumping-1.webp" alt="Reblocked weatherboard house, sub-floor view" loading="lazy" decoding="async">
-            <figcaption>Weatherboard reblock</figcaption>
+            <img src="../Assets/reblocking-restumping-whole-house.webp" alt="Whole weatherboard house reblocked, levelled and tidied" loading="lazy" decoding="async">
+            <figcaption>Finished whole-house reblock</figcaption>
           </figure>
           <figure class="gallery-card">
-            <img src="../Assets/reblocking-restumping-2.webp" alt="House lifted and stumps replaced with concrete" loading="lazy" decoding="async">
-            <figcaption>House lift + restump</figcaption>
+            <img src="../Assets/house-corner-jacked.jpg" alt="House corner jacked up mid-reblock with stumps being replaced" loading="lazy" decoding="async">
+            <figcaption>House jacked for reblock</figcaption>
           </figure>
           <figure class="gallery-card">
-            <img src="../Assets/reblocking-restumping-3.webp" alt="Concrete stumps installed under levelled house" loading="lazy" decoding="async">
-            <figcaption>Concrete stumps</figcaption>
+            <img src="../Assets/reblocking-restumping-1.webp" alt="Reblocked weatherboard sub-floor with new concrete stumps installed" loading="lazy" decoding="async">
+            <figcaption>New concrete stumps</figcaption>
           </figure>
           <figure class="gallery-card">
             <img src="../Assets/timber-to-concrete-1.webp" alt="Timber to concrete stump conversion in progress" loading="lazy" decoding="async">
             <figcaption>Timber to concrete</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- BEFORE / AFTER -->
-    <section class="section bg-cream">
-      <div class="container">
-        <div class="ba-grid">
-          <figure class="ba-card">
-            <img src="../Assets/house-corner-jacked.jpg" alt="Before: house corner being jacked up to replace rotten stumps" loading="lazy" decoding="async">
-            <figcaption class="ba-badge ba-badge--before">Before</figcaption>
-          </figure>
-          <figure class="ba-card">
-            <img src="../Assets/reblocking-restumping-whole-house.webp" alt="After: whole house reblocked, levelled and tidied" loading="lazy" decoding="async">
-            <figcaption class="ba-badge ba-badge--after">After</figcaption>
           </figure>
         </div>
       </div>
