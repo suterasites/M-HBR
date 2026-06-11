@@ -130,6 +130,8 @@
       }
       var events = ['pointerdown', 'touchstart', 'keydown', 'click', 'mousemove'];
       events.forEach(function(e) { window.addEventListener(e, loadElfsight, { once: true, passive: true, capture: true }); });
+      // Fallback: load after 2.5s even without interaction so the reviews section is never left empty.
+      setTimeout(loadElfsight, 2500);
     })();
   </script>
 
@@ -422,7 +424,7 @@
               <span class="tick"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>35+ Years Restumping</span>
               <span class="tick"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>15-Year Guarantee</span>
               <span class="tick"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Registered Builder</span>
-              <span class="tick"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>107 Five-Star Reviews</span>
+              <span class="tick"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>107 Customer Reviews</span>
             </div>
           </div>
           <div class="hero__media">
@@ -460,7 +462,7 @@
           </div>
           <div>
             <div class="trust-bar__stat">107</div>
-            <div class="trust-bar__label">Five-star reviews</div>
+            <div class="trust-bar__label">Customer reviews</div>
           </div>
           <div>
             <div class="trust-bar__stat">Fixed</div>
