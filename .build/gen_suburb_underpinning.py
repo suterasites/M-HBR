@@ -17,6 +17,14 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, ".."))
 SRC = os.path.join(ROOT, "underpinning.html")
 
+# Johnny 2026-08-14: the business only wants reblocking and restumping work, so the
+# suburb underpinning pages are held back from search. "noindex, follow" (not a
+# robots.txt Disallow) is deliberate: Google has to be able to CRAWL a page to read
+# the noindex off it, and "follow" keeps the internal links to the reblocking pages
+# live. The pages stay built and reachable - flip this to False and re-run to
+# re-open them for indexing. They must also stay OUT of sitemap.xml while it is True.
+NOINDEX = True
+
 # (suburb, slug, region, ground/housing-stock character sentence)
 # region drives the hero sub-line and which local-FAQ answer is used.
 SUBURBS = [
@@ -106,6 +114,10 @@ def transform(html, sub, slug, region, ground):
         "Engineered underpinning for brick, slab and double-storey Melbourne homes. Permitted, signed off, 15-year written guarantee on every job.",
         f"Engineered underpinning for brick, slab and double-storey homes in {sub}. Permitted, signed off, 15-year written guarantee on every job.")  # meta/og/twitter desc
     head = head.replace("underpinning.html", f"underpinning-{slug}.html")  # canonical/og:url/schema (head only)
+    if NOINDEX:  # held back from search per Johnny 2026-08-14 (see NOINDEX note above)
+        canonical = f'<link rel="canonical" href="https://www.mhbreblocking.com/underpinning-{slug}.html" />'
+        assert canonical in head, f"{slug}: canonical anchor not found for robots tag"
+        head = head.replace(canonical, canonical + '\n<meta name="robots" content="noindex, follow" />', 1)
     head = head.replace('content="Melbourne, Victoria"', f'content="{sub}, Victoria"')  # geo.placename
     head = head.replace('"name": "Underpinning"', f'"name": "Underpinning {sub}"')  # Service + Breadcrumb schema
     head = head.replace(
@@ -169,6 +181,8 @@ def main():
         assert ground in out, f"{slug}: local ground sentence missing"
         assert "AREAS WE SERVICE" in out, f"{slug}: areas section lost"
         assert "Underpinning Melbourne" not in out, f"{slug}: stale Melbourne title left behind"
+        assert (('<meta name="robots" content="noindex, follow" />' in out) == NOINDEX), \
+            f"{slug}: robots tag does not match NOINDEX={NOINDEX}"
         dst = os.path.join(ROOT, f"underpinning-{slug}.html")
         with open(dst, "w", encoding="utf-8") as fh:
             fh.write(out)
