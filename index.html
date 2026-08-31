@@ -44,6 +44,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
 <meta name="theme-color" content="#1A1614" />
+<link rel="preload" as="image" href="Assets/concrete-stump-closeup.jpg" fetchpriority="high" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -488,7 +489,7 @@
               <div class="col-span-5">
                 <div class="condensed text-brand-rust text-[12px] tracking-[0.22em] mb-5">EVERY JOB</div>
                 <div class="relative h-[260px] rounded-md overflow-hidden">
-                  <img src="Assets/concrete-stump-closeup.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" width="1536" height="2048" />
+                  <img fetchpriority="high" src="Assets/concrete-stump-closeup.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" width="1536" height="2048" />
                   <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/65 to-brand-charcoal/30"></div>
                   <div class="relative h-full p-6 flex flex-col justify-end text-brand-cream">
                     <div class="condensed text-brand-orange text-[11px] tracking-[0.22em]">15-YEAR GUARANTEE</div>
@@ -585,7 +586,7 @@
 <section id="top" class="relative overflow-hidden hero-grad text-brand-cream grain">
   <!-- Decorative texture image -->
   <div class="absolute inset-0 opacity-[0.14] mix-blend-luminosity">
-    <img src="Assets/under-house-framing.webp" alt="" class="w-full h-full object-cover" width="2500" height="1875" />
+    <img loading="lazy" decoding="async" src="Assets/under-house-framing.webp" alt="" class="w-full h-full object-cover" width="2500" height="1875" />
   </div>
   <div class="absolute inset-0 bg-brand-charcoal/70"></div>
 
@@ -631,11 +632,11 @@
       <div class="lg:col-span-5 relative">
         <div class="relative">
           <div class="img-tone rounded-md overflow-hidden border border-brand-cream/15 shadow-rust-lg">
-            <img src="Assets/house-jacked.jpg" alt="Weatherboard home jacked up on temporary supports during reblocking" class="w-full h-[460px] lg:h-[560px] object-cover" width="960" height="720" />
+            <img loading="lazy" decoding="async" src="Assets/house-jacked.jpg" alt="Weatherboard home jacked up on temporary supports during reblocking" class="w-full h-[460px] lg:h-[560px] object-cover" width="960" height="720" />
           </div>
           <div class="absolute -bottom-8 -left-6 hidden md:block">
             <div class="img-tone rounded-md overflow-hidden border border-brand-cream/15 shadow-rust-md w-[210px] h-[160px]">
-              <img src="Assets/concrete-stump-closeup.jpg" alt="Concrete stump installed with steel cap supporting timber bearer" class="w-full h-full object-cover" width="1536" height="2048" />
+              <img loading="lazy" decoding="async" src="Assets/concrete-stump-closeup.jpg" alt="Concrete stump installed with steel cap supporting timber bearer" class="w-full h-full object-cover" width="1536" height="2048" />
             </div>
           </div>
         </div>
@@ -769,7 +770,7 @@
 
 <!-- ============ FEATURED IMAGE BAND ============ -->
 <section class="relative h-[420px] lg:h-[520px] overflow-hidden">
-  <img src="Assets/excavation-stumps.jpg" alt="View under a house mid-reblock with new concrete stumps installed" class="absolute inset-0 w-full h-full object-cover" width="2048" height="1536" />
+  <img loading="lazy" decoding="async" src="Assets/excavation-stumps.jpg" alt="View under a house mid-reblock with new concrete stumps installed" class="absolute inset-0 w-full h-full object-cover" width="2048" height="1536" />
   <div class="absolute inset-0 bg-gradient-to-r from-brand-charcoal/95 via-brand-charcoal/80 to-brand-charcoal/55"></div>
   <div class="relative max-w-7xl mx-auto px-5 lg:px-8 h-full flex items-center">
     <div class="max-w-xl">
@@ -801,21 +802,21 @@
 
     <div class="grid grid-cols-12 gap-4 lg:gap-5">
       <div class="col-span-12 md:col-span-8 img-tone rounded-md overflow-hidden border border-brand-charcoal/10">
-        <img src="Assets/house-jacked.jpg" alt="Weatherboard cottage lifted on temporary supports for full reblock" class="w-full h-[300px] md:h-[420px] object-cover" width="960" height="720" />
+        <img loading="lazy" decoding="async" src="Assets/house-jacked.jpg" alt="Weatherboard cottage lifted on temporary supports for full reblock" class="w-full h-[300px] md:h-[420px] object-cover" width="960" height="720" />
       </div>
       <div class="col-span-12 md:col-span-4 grid grid-cols-1 gap-4 lg:gap-5">
         <div class="img-tone rounded-md overflow-hidden border border-brand-charcoal/10">
-          <img src="Assets/concrete-stump-closeup.jpg" alt="New concrete stump with steel cap supporting timber bearer" class="w-full h-[200px] object-cover" width="1536" height="2048" />
+          <img loading="lazy" decoding="async" src="Assets/concrete-stump-closeup.jpg" alt="New concrete stump with steel cap supporting timber bearer" class="w-full h-[200px] object-cover" width="1536" height="2048" />
         </div>
         <div class="img-tone rounded-md overflow-hidden border border-brand-charcoal/10">
-          <img src="Assets/house-corner-jacked.jpg" alt="Corner of weatherboard home jacked clear of failed timber stumps" class="w-full h-[200px] object-cover" width="960" height="960" />
+          <img loading="lazy" decoding="async" src="Assets/house-corner-jacked.jpg" alt="Corner of weatherboard home jacked clear of failed timber stumps" class="w-full h-[200px] object-cover" width="960" height="960" />
         </div>
       </div>
       <div class="col-span-12 md:col-span-6 img-tone rounded-md overflow-hidden border border-brand-charcoal/10">
-        <img src="Assets/excavation-stumps.jpg" alt="Sub-floor excavation with new concrete stumps in place" class="w-full h-[260px] md:h-[320px] object-cover" width="2048" height="1536" />
+        <img loading="lazy" decoding="async" src="Assets/excavation-stumps.jpg" alt="Sub-floor excavation with new concrete stumps in place" class="w-full h-[260px] md:h-[320px] object-cover" width="2048" height="1536" />
       </div>
       <div class="col-span-12 md:col-span-6 img-tone rounded-md overflow-hidden border border-brand-charcoal/10">
-        <img src="Assets/under-house-framing.webp" alt="Under-house view of reblocked sub-floor with concrete stumps and timber bearers" class="w-full h-[260px] md:h-[320px] object-cover" width="2500" height="1875" />
+        <img loading="lazy" decoding="async" src="Assets/under-house-framing.webp" alt="Under-house view of reblocked sub-floor with concrete stumps and timber bearers" class="w-full h-[260px] md:h-[320px] object-cover" width="2500" height="1875" />
       </div>
     </div>
   </div>
@@ -827,7 +828,7 @@
     <div class="lg:col-span-5 order-2 lg:order-1">
       <div class="relative">
         <div class="img-tone rounded-md overflow-hidden border border-brand-charcoal/10 shadow-rust-md">
-          <img src="Assets/house-corner-jacked.jpg" alt="Corner of a weatherboard home being reblocked" class="w-full h-[460px] object-cover" width="960" height="960" />
+          <img loading="lazy" decoding="async" src="Assets/house-corner-jacked.jpg" alt="Corner of a weatherboard home being reblocked" class="w-full h-[460px] object-cover" width="960" height="960" />
         </div>
         <div class="absolute -bottom-6 -right-6 bg-brand-charcoal text-brand-cream rounded-md p-6 w-[230px] shadow-rust-lg hidden md:block">
           <div class="condensed text-brand-orange text-[12px]">Trading Since</div>
@@ -964,7 +965,7 @@
 <footer class="bg-white text-brand-charcoal/75 border-t border-brand-charcoal/10">
   <div class="max-w-7xl mx-auto px-5 lg:px-8 py-14 grid md:grid-cols-12 gap-10">
     <div class="md:col-span-4">
-      <img src="Assets/logo.jpg" alt="MHB Reblocking" class="h-11 w-auto" width="403" height="125" />
+      <img loading="lazy" decoding="async" src="Assets/logo.jpg" alt="MHB Reblocking" class="h-11 w-auto" width="403" height="125" />
       <p class="mt-6 text-[14.5px] leading-[1.7] text-brand-charcoal/65 max-w-sm">
         Family-owned reblocking, restumping and underpinning across Maribyrnong, Hobsons Bay
         and greater Melbourne. Trading since the early 1990s.
