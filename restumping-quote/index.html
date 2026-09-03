@@ -135,6 +135,30 @@
     gtag('config', 'AW-18179285099');
   </script>
 
+  <!--
+    Website-call conversion ("Call (0466 961 177)", WEBSITE_CALL, 60s minimum).
+    For visitors arriving on a Google Ads click, this swaps the displayed number
+    for a Google forwarding number and counts calls that actually connect for
+    60 seconds or more. Everyone else sees the real number and nothing changes.
+
+    This is the conversion the account has been blind to: click-to-call below
+    only records the TAP, so a direct-dial caller - the normal way someone hires
+    a restumper - has never appeared in Google Ads at all.
+
+    The number must stay written exactly as it is displayed on the page
+    ('0466 961 177'); that string is how the tag finds the number to swap.
+
+    NOTE: click-to-call and this action can both fire for one mobile caller who
+    taps and then talks past 60 seconds. Leave click-to-call primary only until
+    this is confirmed recording, then demote it to secondary - see
+    'Google Ads Optimizer/clients/Maribyrnong & Hobsons Bay Reblocking/actions/2026-09-03-call-tracking.md'.
+  -->
+  <script>
+    gtag('config', 'AW-18179285099/vKOKCJH0q7EcEOvAx9xD', {
+      'phone_conversion_number': '0466 961 177'
+    });
+  </script>
+
   <!-- Elfsight Google Reviews - deferred until first user interaction (kept lazy; not conversion-critical). -->
   <script>
     (function() {
