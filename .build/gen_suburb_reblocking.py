@@ -171,7 +171,18 @@ def transform(html, sub, slug, council, house, ground, access):
     head = head.replace(
         "Whole-of-house reblocking and restumping across Melbourne. Concrete stumps only, computer-levelled, all permits supplied, 15-year written guarantee.",
         f"Whole-of-house reblocking and restumping in {sub}. Concrete stumps only, computer-levelled, all permits supplied, 15-year written guarantee.")  # meta/og/twitter desc
-    head = head.replace("reblocking-restumping.html", f"reblocking-restumping-{slug}.html")  # canonical/og:url/schema (head only)
+    head = head.replace("reblocking-restumping.html", f"reblocking-restumping-{slug}.html")  # og:url/schema (head only)
+    # The canonical uses the CLEAN url, so the .html replace above never reaches it and every
+    # generated page inherited the hub's canonical. That shipped 23 suburb pages all declaring
+    # /reblocking-restumping as their canonical, and GSC excluded each one it crawled as
+    # "Alternate page with proper canonical tag". Replace it explicitly, and assert, so a silent
+    # miss can never ship again. (Diagnosed + fixed 2026-09-11.)
+    hub_canonical = '<link rel="canonical" href="https://www.mhbreblocking.com/reblocking-restumping" />'
+    assert hub_canonical in head, f"{slug}: hub canonical anchor not found"
+    head = head.replace(
+        hub_canonical,
+        f'<link rel="canonical" href="https://www.mhbreblocking.com/reblocking-restumping-{slug}" />',
+        1)
     head = head.replace('content="Melbourne, Victoria"', f'content="{sub}, Victoria"')  # geo.placename
     head = head.replace('"name": "Reblocking & Restumping"', f'"name": "Reblocking & Restumping {sub}"')  # Service + Breadcrumb schema
     head = head.replace(
@@ -263,6 +274,8 @@ def main():
         out = transform(src, sub, slug, council, house, ground, access)
         # guards
         assert f"reblocking-restumping-{slug}.html" in out, f"{slug}: self URL missing"
+        assert f'rel="canonical" href="https://www.mhbreblocking.com/reblocking-restumping-{slug}"' in out, \
+            f"{slug}: self-canonical missing (page would be excluded as an alternate of the hub)"
         assert out.count("reblocking-restumping.html") >= 3, f"{slug}: nav/footer links lost"
         assert "SUTERA_LEAD_EVENTS" in out and "G-M67WRZBS53" in out, f"{slug}: tracking dropped"
         assert f"Do you service {sub}?" in out, f"{slug}: local FAQ missing"
