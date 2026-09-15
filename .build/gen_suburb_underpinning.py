@@ -12,10 +12,12 @@ Sibling of gen_suburb_reblocking.py, same contract.
 Run from the site root:  python3 .build/gen_suburb_underpinning.py
 """
 import os
+import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, ".."))
 SRC = os.path.join(ROOT, "underpinning.html")
+HTML_REF = re.compile(r'href="[^"]*\.html\b|mhbreblocking\.com/[^"\s]*\.html\b')
 
 # Johnny 2026-08-14: the business only wants reblocking and restumping work, so the
 # suburb underpinning pages are held back from search. "noindex, follow" (not a
@@ -113,9 +115,13 @@ def transform(html, sub, slug, region, ground):
     head = head.replace(
         "Engineered underpinning for brick, slab and double-storey Melbourne homes. Permitted, signed off, 15-year written guarantee on every job.",
         f"Engineered underpinning for brick, slab and double-storey homes in {sub}. Permitted, signed off, 15-year written guarantee on every job.")  # meta/og/twitter desc
-    head = head.replace("underpinning.html", f"underpinning-{slug}.html")  # canonical/og:url/schema (head only)
+    # canonical/og:url/schema url/breadcrumb item (head only). Clean urls since 2026-09-15 - see
+    # gen_suburb_reblocking.py for why this anchors on the closing quote and asserts the count.
+    hub_url = 'https://www.mhbreblocking.com/underpinning"'
+    assert head.count(hub_url) == 4, f"{slug}: expected 4 hub self-URLs in head, found {head.count(hub_url)}"
+    head = head.replace(hub_url, f'https://www.mhbreblocking.com/underpinning-{slug}"')
     if NOINDEX:  # held back from search per Johnny 2026-08-14 (see NOINDEX note above)
-        canonical = f'<link rel="canonical" href="https://www.mhbreblocking.com/underpinning-{slug}.html" />'
+        canonical = f'<link rel="canonical" href="https://www.mhbreblocking.com/underpinning-{slug}" />'
         assert canonical in head, f"{slug}: canonical anchor not found for robots tag"
         head = head.replace(canonical, canonical + '\n<meta name="robots" content="noindex, follow" />', 1)
     head = head.replace('content="Melbourne, Victoria"', f'content="{sub}, Victoria"')  # geo.placename
@@ -173,8 +179,9 @@ def main():
     for sub, slug, region, ground in SUBURBS:
         out = transform(src, sub, slug, region, ground)
         # guards
-        assert f"underpinning-{slug}.html" in out, f"{slug}: self URL missing"
-        assert out.count('href="underpinning.html"') >= 3, f"{slug}: nav/footer links lost"
+        assert f'rel="canonical" href="https://www.mhbreblocking.com/underpinning-{slug}"' in out, f"{slug}: self URL missing"
+        assert out.count('href="/underpinning"') >= 3, f"{slug}: nav/footer links lost"
+        assert not HTML_REF.search(out), f"{slug}: names a .html url ({HTML_REF.search(out).group(0)[:60]})"
         assert "SUTERA_LEAD_EVENTS" in out and "G-M67WRZBS53" in out, f"{slug}: tracking dropped"
         assert f"Do you underpin homes in {sub}?" in out, f"{slug}: local FAQ missing"
         assert f"Underpinning in {sub}<br/>" in out, f"{slug}: hero H1 not localised"

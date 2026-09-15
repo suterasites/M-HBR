@@ -10,10 +10,12 @@ the FAQ are localised, plus one suburb-specific FAQ.
 Run from the site root:  python3 .build/gen_suburb_reblocking.py
 """
 import os
+import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, ".."))
 SRC = os.path.join(ROOT, "reblocking-restumping.html")
+HTML_REF = re.compile(r'href="[^"]*\.html\b|mhbreblocking\.com/[^"\s]*\.html\b')
 
 # (suburb, slug, council, housing-stock, ground-conditions, site-access)
 #
@@ -171,18 +173,16 @@ def transform(html, sub, slug, council, house, ground, access):
     head = head.replace(
         "Whole-of-house reblocking and restumping across Melbourne. Concrete stumps only, computer-levelled, all permits supplied, 15-year written guarantee.",
         f"Whole-of-house reblocking and restumping in {sub}. Concrete stumps only, computer-levelled, all permits supplied, 15-year written guarantee.")  # meta/og/twitter desc
-    head = head.replace("reblocking-restumping.html", f"reblocking-restumping-{slug}.html")  # og:url/schema (head only)
-    # The canonical uses the CLEAN url, so the .html replace above never reaches it and every
-    # generated page inherited the hub's canonical. That shipped 23 suburb pages all declaring
-    # /reblocking-restumping as their canonical, and GSC excluded each one it crawled as
-    # "Alternate page with proper canonical tag". Replace it explicitly, and assert, so a silent
-    # miss can never ship again. (Diagnosed + fixed 2026-09-11.)
-    hub_canonical = '<link rel="canonical" href="https://www.mhbreblocking.com/reblocking-restumping" />'
-    assert hub_canonical in head, f"{slug}: hub canonical anchor not found"
-    head = head.replace(
-        hub_canonical,
-        f'<link rel="canonical" href="https://www.mhbreblocking.com/reblocking-restumping-{slug}" />',
-        1)
+    # Self URL: canonical, og:url, Service schema url and BreadcrumbList item. All four name the
+    # CLEAN url. This used to replace "reblocking-restumping.html", which reached og:url and schema
+    # but never the canonical, so 23 suburb pages shipped declaring the hub as their canonical and
+    # GSC excluded each one it crawled as "Alternate page with proper canonical tag" (fixed
+    # 2026-09-11). Since 2026-09-15 nothing on the site names a .html url at all, so the replace
+    # anchors on the closing quote, which cannot match /reblocking-restumping-<suburb>, and the
+    # count is asserted so a silent miss can never ship again.
+    hub_url = 'https://www.mhbreblocking.com/reblocking-restumping"'
+    assert head.count(hub_url) == 4, f"{slug}: expected 4 hub self-URLs in head, found {head.count(hub_url)}"
+    head = head.replace(hub_url, f'https://www.mhbreblocking.com/reblocking-restumping-{slug}"')
     head = head.replace('content="Melbourne, Victoria"', f'content="{sub}, Victoria"')  # geo.placename
     head = head.replace('"name": "Reblocking & Restumping"', f'"name": "Reblocking & Restumping {sub}"')  # Service + Breadcrumb schema
     head = head.replace(
@@ -273,10 +273,12 @@ def main():
     for sub, slug, council, house, ground, access in SUBURBS:
         out = transform(src, sub, slug, council, house, ground, access)
         # guards
-        assert f"reblocking-restumping-{slug}.html" in out, f"{slug}: self URL missing"
         assert f'rel="canonical" href="https://www.mhbreblocking.com/reblocking-restumping-{slug}"' in out, \
             f"{slug}: self-canonical missing (page would be excluded as an alternate of the hub)"
-        assert out.count("reblocking-restumping.html") >= 3, f"{slug}: nav/footer links lost"
+        assert out.count('href="/reblocking-restumping"') >= 3, f"{slug}: nav/footer links lost"
+        # Cloudflare Pages 308s .html to the clean url, so a .html link is a redirect Google has
+        # to follow to reach the page. See .build/clean_url_links.py.
+        assert not HTML_REF.search(out), f"{slug}: names a .html url ({HTML_REF.search(out).group(0)[:60]})"
         assert "SUTERA_LEAD_EVENTS" in out and "G-M67WRZBS53" in out, f"{slug}: tracking dropped"
         assert f"Do you service {sub}?" in out, f"{slug}: local FAQ missing"
         assert f"Do I need a permit to reblock in {sub}?" in out, f"{slug}: permit FAQ missing"
