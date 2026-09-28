@@ -108,6 +108,101 @@ SUBURBS = [
 ]
 
 
+# A full section of copy that exists on ONE page only. Added 2026-09-28 for the two pages
+# Google re-crawled on 09-22, read the correct self-canonical on, and still folded into the
+# hub as "Duplicate, Google chose different canonical than user". Ten sibling pages were
+# indexed that same week on the three shared paragraphs, so the template can pass - these
+# two needed more of their own. Same rule as the SUBURBS rows: public ground, housing and
+# permit facts plus what the CRM actually records (enquiries, never invented jobs).
+# (eyebrow, h2 line 1, h2 line 2 in orange, [paragraphs], [(card title, card body)])
+DEEP = {
+    "Williamstown": (
+        "Reblocking In Williamstown",
+        "Melbourne's oldest cottages,", "on bay-side ground.",
+        [
+            "Williamstown was Melbourne's first port, and the streets back from the water still hold "
+            "some of the oldest timber houses in the city. Under the oldest of them the original "
+            "supports are often not sawn timber stumps at all but red gum blocks, or a mix of red gum, "
+            "bluestone and whatever a previous owner packed in when a corner dropped. That patchwork is common "
+            "in houses this age, and it is why the floors in these cottages rarely fall in one direction.",
+            "A reblock here usually means taking all of it out, not topping up the worst few. Mixing "
+            "new concrete stumps with century-old red gum leaves the house sitting on two materials "
+            "that move differently, and the old ones keep settling after we have left.",
+            "Much of the older town sits under a Hobsons Bay heritage overlay. A reblock that keeps "
+            "the house at its current height and leaves the front of it alone is normally a building "
+            "permit job only. Lifting the house, or changing a visible base or front stumps on a "
+            "heritage street, is where a planning step can come in, so we check the overlay before we "
+            "quote rather than after the house is on jacks.",
+            "Recent Williamstown enquiries have come in two ways: a pre-purchase building report that "
+            "has flagged stump settlement, and a front room that has visibly dropped against the rest "
+            "of the house. Both are worth an inspection before anything else is done to the floor, "
+            "because re-sanding or re-laying boards over failing stumps just means doing them twice.",
+        ],
+        [
+            ("Heritage overlay", "Checked before the quote, not discovered on the day. Height and street-facing changes are the triggers."),
+            ("No side access", "Common on the old cottages. The dig is by hand and staged so the house is never left short of support."),
+            ("Pre-purchase reports", "If a building report has flagged the stumps, we can inspect and quote before settlement so the figure is known."),
+        ],
+    ),
+    "Gisborne": (
+        "Reblocking In Gisborne",
+        "Township weatherboards,", "Ranges weather.",
+        [
+            "Gisborne is really two kinds of housing. Around the old township there are weatherboard "
+            "cottages and later timber homes sitting on stumps, many of them the original ones. Out in "
+            "the newer estates most houses are built slab-on-ground, which cannot be reblocked at all. "
+            "A slab that has cracked or dropped is an underpinning job, and we will tell you which one "
+            "you have before anything is quoted.",
+            "The ground here is volcanic, the same basalt-derived clay that runs under the western "
+            "plains closer to Melbourne, but Gisborne sits higher and colder. Winters are longer and "
+            "wetter, frosts are common, and the clay stays wet well into spring before drying hard over "
+            "summer. That long swing is what loosens timber stumps and rots them at the ground line.",
+            "Gisborne is about 45 minutes up the Calder from our inner-west base. We have had "
+            "enquiries from Bullengarook and Mount Macedon, either side of town. The crew, the machinery and the stumps come up together, so a Gisborne "
+            "job runs on the same schedule as one down the road from us.",
+        ],
+        [
+            ("Slab or stumps?", "Estate homes are mostly slab-on-ground and need underpinning, not a reblock. We check first."),
+            ("Long wet winters", "Clay that stays damp into spring and dries hard in summer is the cycle that finishes timber stumps."),
+            ("One trip up", "Crew, machinery and stumps travel together from the inner west, so nothing waits on local hire."),
+        ],
+    ),
+}
+
+
+def deep_section(sub):
+    eyebrow, h2a, h2b, paras, cards = DEEP[sub]
+    ps = "".join(
+        f'      <p class="{"mt-5 " if i else ""}text-[17px] text-brand-charcoal/75 leading-[1.85]">\n'
+        f'        {p}\n'
+        '      </p>\n'
+        for i, p in enumerate(paras))
+    cs = "".join(
+        '      <div class="card-elevated p-7 flex flex-col h-full">\n'
+        f'        <h3 class="display text-[20px] tracking-tight">{t}</h3>\n'
+        f'        <p class="mt-3 text-[14.5px] text-brand-charcoal/72 leading-[1.7]">{b}</p>\n'
+        '      </div>\n'
+        for t, b in cards)
+    return (
+        f'<!-- ============ LOCAL: {sub.upper()} ============ -->\n'
+        '<section class="py-20 lg:py-28 bg-brand-sand">\n'
+        '  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-12 gap-12 items-start">\n'
+        '    <div class="lg:col-span-5">\n'
+        f'      <span class="eyebrow text-brand-rust">{eyebrow}</span>\n'
+        '      <h2 class="display text-[38px] lg:text-[48px] mt-4 leading-[1.05]">\n'
+        f'        {h2a}<br/><span class="text-brand-orange">{h2b}</span>\n'
+        '      </h2>\n'
+        '    </div>\n'
+        '    <div class="lg:col-span-7">\n'
+        f'{ps}'
+        '    </div>\n'
+        '  </div>\n'
+        '  <div class="max-w-7xl mx-auto px-5 lg:px-8 mt-10 grid lg:grid-cols-3 gap-6">\n'
+        f'{cs}'
+        '  </div>\n'
+        '</section>\n\n')
+
+
 def local_faq_answer(sub, council):
     if council == "Macedon Ranges":
         # Expansion zone, not the home patch - claim the service area, not a volume
@@ -238,6 +333,11 @@ def transform(html, sub, slug, council, house, ground, access):
     assert anchor in body, "ground-paragraph anchor missing"
     body = body.replace(anchor, ground_para + anchor, 1)
 
+    if sub in DEEP:
+        signs = "<!-- ============ SIGNS YOU NEED IT ============ -->"
+        assert body.count(signs) == 1, f"{slug}: local-section anchor missing"
+        body = body.replace(signs, deep_section(sub) + signs, 1)
+
     body = body.replace(
         'text-brand-charcoal/85">Reblocking & Restumping</span>',
         f'text-brand-charcoal/85">Reblocking & Restumping {sub}</span>')  # breadcrumb visible
@@ -284,6 +384,8 @@ def main():
         assert f"Do I need a permit to reblock in {sub}?" in out, f"{slug}: permit FAQ missing"
         assert ground[:40] in out, f"{slug}: ground paragraph missing"
         assert access[:40] in out, f"{slug}: access paragraph missing"
+        if sub in DEEP:
+            assert DEEP[sub][3][0][:40] in out, f"{slug}: local section missing"
         dst = os.path.join(ROOT, f"reblocking-restumping-{slug}.html")
         with open(dst, "w", encoding="utf-8") as fh:
             fh.write(out)
