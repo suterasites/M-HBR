@@ -144,6 +144,36 @@ DEEP = {
             ("Pre-purchase reports", "If a building report has flagged the stumps, we can inspect and quote before settlement so the figure is known."),
         ],
     ),
+    # Added 2026-10-14: Google re-crawled South Kingsville on 10-04 and still folded it into
+    # the hub, while Williamstown, given its own section on 09-28, has since been indexed.
+    "South Kingsville": (
+        "Reblocking In South Kingsville",
+        "Old cottage at the front,", "new extension at the back.",
+        [
+            "South Kingsville is a small pocket wedged between Spotswood, Newport and Yarraville, and "
+            "a lot of its period weatherboards have already been extended once. The usual shape is the "
+            "original cottage at the front, still on its timber stumps, with a newer kitchen and "
+            "living area across the back. Sometimes that back half is on concrete stumps, sometimes it "
+            "is a slab.",
+            "That junction is where most of the trouble shows up. The old front of the house keeps "
+            "moving with the ground and the new back of it does not, so the crack runs along the line "
+            "where the two meet: a step in the floor at the old doorway, a gap opening in the skirting, "
+            "a hallway door that drags only on one side. Re-packing the front stumps does not fix it if "
+            "they are failing, because the front keeps settling away from the extension.",
+            "The fix is to reblock the original part of the house and bring it back to the level of "
+            "the extension, not the other way round. A slab cannot be raised to meet the old floor, so "
+            "the old floor is set out to meet the slab. We measure both before quoting, so the figure "
+            "reflects the levels the house actually has.",
+            "Parts of Hobsons Bay sit under a heritage overlay. A reblock that keeps the house at its "
+            "current height is normally a building permit job only, and we check the overlay for the "
+            "address before we quote.",
+        ],
+        [
+            ("Old meets new", "The crack between an original cottage and its extension is usually the stumps, not the extension."),
+            ("Level to the slab", "A slab cannot move up, so the original floor is reblocked to meet it."),
+            ("Hand dig", "Tight side paths on the period blocks usually mean the excavation is done by hand, and it is priced that way."),
+        ],
+    ),
     "Gisborne": (
         "Reblocking In Gisborne",
         "Township weatherboards,", "Ranges weather.",
