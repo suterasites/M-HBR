@@ -146,6 +146,11 @@ DEEP = {
     ),
     # Added 2026-10-14: Google re-crawled South Kingsville on 10-04 and still folded it into
     # the hub, while Williamstown, given its own section on 09-28, has since been indexed.
+    # Reworked 2026-10-19: re-crawled 10-16 with this section live and STILL folded, while
+    # Gisborne went in on the same day's crawl. Williamstown and Gisborne both cite real
+    # enquiries and this one cited none, so it now carries the 3015 postcode's (Newport's,
+    # from the CRM lead logs, no names or addresses). Its heritage paragraph was a near-copy
+    # of Williamstown's and South Kingsville is not in HERITAGE, so it went.
     "South Kingsville": (
         "Reblocking In South Kingsville",
         "Old cottage at the front,", "new extension at the back.",
@@ -164,14 +169,24 @@ DEEP = {
             "the extension, not the other way round. A slab cannot be raised to meet the old floor, so "
             "the old floor is set out to meet the slab. We measure both before quoting, so the figure "
             "reflects the levels the house actually has.",
-            "Parts of Hobsons Bay sit under a heritage overlay. A reblock that keeps the house at its "
-            "current height is normally a building permit job only, and we check the overlay for the "
-            "address before we quote.",
+            "Since May 2026 we have had enquiries from nine households in Newport, which shares "
+            "South Kingsville's 3015 postcode, and more from Yarraville and Williamstown close by. "
+            "A pattern runs through them: a lot of these houses are not on their first set of stumps. "
+            "One Newport house was reblocked in 2017, before its current owners bought it, and now has "
+            "sloping floors at the front. Two were already on concrete stumps, with sloping floors or "
+            "cracking walls. In Williamstown, a house restumped six years ago has a sticking front door "
+            "and a floor that has dropped in places.",
+            "Movement after an earlier restump does not always mean another reblock. If the stumps "
+            "under the house are sound concrete and it has only dropped, the fix can be a re-level: "
+            "jacked, bearers repacked, surveyed again. If the earlier work left some of the original "
+            "timber stumps in place, those are usually what keep moving, and that part of the house "
+            "needs reblocking. We find out which by getting under the floor, and if a re-level will "
+            "do the job we say so.",
         ],
         [
             ("Old meets new", "The crack between an original cottage and its extension is usually the stumps, not the extension."),
             ("Level to the slab", "A slab cannot move up, so the original floor is reblocked to meet it."),
-            ("Hand dig", "Tight side paths on the period blocks usually mean the excavation is done by hand, and it is priced that way."),
+            ("Restumped before?", "Sound concrete stumps and a dropped floor can be a re-level. Original timber left in place is what keeps moving."),
         ],
     ),
     "Gisborne": (
