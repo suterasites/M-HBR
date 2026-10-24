@@ -44,8 +44,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
 <meta name="theme-color" content="#1A1614" />
-<link rel="preload" as="image" href="Assets/concrete-stump-closeup.jpg" fetchpriority="high" />
-<link rel="preload" as="image" href="Assets/under-house-framing.webp" fetchpriority="high" />
+<link rel="preload" as="image" href="Assets/under-house-framing.webp" imagesrcset="Assets/under-house-framing-1024.webp 1024w, Assets/under-house-framing-1600.webp 1600w, Assets/under-house-framing.webp 2500w" imagesizes="100vw" fetchpriority="high" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -458,7 +457,7 @@
               <div class="col-span-5">
                 <div class="condensed text-brand-rust text-[12px] tracking-[0.22em] mb-5">EVERY JOB</div>
                 <div class="relative h-[260px] rounded-md overflow-hidden">
-                  <img fetchpriority="high" src="Assets/concrete-stump-closeup.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" width="1536" height="2048" />
+                  <img loading="lazy" decoding="async" src="Assets/concrete-stump-closeup.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" width="1536" height="2048" />
                   <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/65 to-brand-charcoal/30"></div>
                   <div class="relative h-full p-6 flex flex-col justify-end text-brand-cream">
                     <div class="condensed text-brand-orange text-[11px] tracking-[0.22em]">15-YEAR GUARANTEE</div>
@@ -555,7 +554,7 @@
 <section id="top" class="relative overflow-hidden hero-grad text-brand-cream grain">
   <!-- Decorative texture image -->
   <div class="absolute inset-0 opacity-[0.14] mix-blend-luminosity">
-    <img fetchpriority="high" decoding="async" src="Assets/under-house-framing.webp" alt="" class="w-full h-full object-cover" width="2500" height="1875" />
+    <img fetchpriority="high" decoding="async" src="Assets/under-house-framing.webp" srcset="Assets/under-house-framing-1024.webp 1024w, Assets/under-house-framing-1600.webp 1600w, Assets/under-house-framing.webp 2500w" sizes="100vw" alt="" class="w-full h-full object-cover" width="2500" height="1875" />
   </div>
   <div class="absolute inset-0 bg-brand-charcoal/70"></div>
 
