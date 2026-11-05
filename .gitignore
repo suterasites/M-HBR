@@ -5,3 +5,6 @@ node_modules/
 .env
 .env.local
 *.log
+
+# Internal notes. The host publishes everything tracked here, so this stays local.
+CLAUDE.md
